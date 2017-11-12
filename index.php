@@ -1,7 +1,7 @@
 <?php
 require "core/core.php";
 
-$searchResults = new SearchResults(getParam('address'), getParam('addressID')); // создаем объект
+@$searchResults = new SearchResults(getParam('address'), getParam('addressID')); // создаем объект
 $lastSearchID = $searchResults->getLastSearchID(); // ID элемента, который будет отображаться на карте
 $resultForMap = $searchResults->getItemByID($lastSearchID); // элемент, который будет отображаться на карте
 $searchQuery = (getParam('address') !== null OR getParam('addressID') !== null) ?
@@ -71,8 +71,7 @@ $searchQuery = (getParam('address') !== null OR getParam('addressID') !== null) 
             function init() {
               myMap = new ymaps.Map("map", {
                 center: [<?= $resultForMap->getLatitude() ?>, <?= $resultForMap->getLongitude() ?>],
-
-                zoom: 7
+                zoom: 10
               });
               myPlacemark = new ymaps.Placemark([<?= $resultForMap->getLatitude() ?>, <?= $resultForMap->getLongitude() ?>], {
                 hintContent: '<?= $resultForMap->getAddress() ?>',

@@ -13,8 +13,6 @@ $homeWorkCaption = 'Менеджер зависимостей Composer.';
 ini_set("display_errors", "1"); // Показ ошибок
 ini_set("display_startup_errors", "1");
 ini_set('error_reporting', E_ALL);
-ini_set('safe_mode', false);
-ini_set('open_basedir', NULL);
 mb_internal_encoding('UTF-8'); // Кодировка по умолчанию
 
 /**
